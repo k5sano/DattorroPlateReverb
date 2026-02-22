@@ -1,0 +1,22 @@
+# Build directories
+build/
+cmake-build-*/
+*_artefacts/
+
+# IDE
+.vscode/
+.idea/
+*.xcworkspace/
+*.xcodeproj/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.log
+*.zip
+
+# Node
+node_modules/

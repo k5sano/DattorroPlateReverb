@@ -1,0 +1,27 @@
+{
+  "hooks": [
+    {
+      "event": "onSessionStart",
+      "steps": [
+        {
+          "name": "check-handoff-exists",
+          "command": "test -d .copilot/handoff && ls .copilot/handoff/*.md 2>/dev/null | head -5 || echo 'WARNING: No handoff files found'"
+        }
+      ]
+    },
+    {
+      "event": "onToolCall",
+      "tools": ["editFiles"],
+      "steps": [
+        {
+          "name": "increment-fix-counter",
+          "command": "bash scripts/fix-counter.sh increment"
+        },
+        {
+          "name": "check-fix-limit",
+          "command": "bash scripts/fix-counter.sh check"
+        }
+      ]
+    }
+  ]
+}
